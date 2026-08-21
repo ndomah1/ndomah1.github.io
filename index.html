@@ -7,25 +7,48 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        ::-webkit-scrollbar { display: none; }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.03);
+        @media (min-width: 768px) {
+            ::-webkit-scrollbar { display: none; }
         }
+        /* Apple Liquid Glass Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        /* Ambient Background Glowing Orbs Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        .orb-1 { animation: float 10s ease-in-out infinite; }
+        .orb-2 { animation: float 14s ease-in-out infinite reverse; }
     </style>
 </head>
-<body class="bg-black text-gray-100 h-screen overflow-hidden flex flex-col p-4 md:p-6 font-sans">
+<body class="bg-[#0b0f0e] text-gray-100 min-h-screen md:h-screen overflow-y-auto md:overflow-hidden flex flex-col p-4 md:p-6 font-sans relative selection:bg-white/20">
+
+    <!-- AMBIENT GLOWING BACKGROUND (Liquid Glass Aesthetic) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-900/20 rounded-full blur-[120px] orb-1"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-900/15 rounded-full blur-[140px] orb-2"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-blue-950/20 rounded-full blur-[150px]"></div>
+    </div>
 
     <!-- MAIN CONTAINER -->
-    <div class="max-w-7xl w-full mx-auto h-full flex flex-col gap-4 overflow-hidden">
+    <div class="max-w-7xl w-full mx-auto h-full flex flex-col gap-4 relative z-10">
 
-        <!-- UPPER LANDSCAPE PORTION (First-Person Rich Summary) -->
-        <header class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 flex-shrink-0">
+        <!-- UPPER LANDSCAPE PORTION -->
+        <header class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 flex-shrink-0">
             <!-- Profile Picture -->
-            <img src="https://avatars.githubusercontent.com/u/ndomah1" alt="Nilesh Domah" class="w-32 h-32 md:w-36 md:h-36 rounded-full border border-white/20 object-cover shadow-2xl flex-shrink-0">
+            <img src="https://avatars.githubusercontent.com/u/ndomah1" alt="Nilesh Domah" class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-white/20 object-cover shadow-[0_0_30px_rgba(255,255,255,0.1)] flex-shrink-0">
             
             <div class="flex-grow text-center md:text-left">
                 <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-1">Hi, I'm Nilesh 👋</h1>
@@ -36,25 +59,25 @@
                 
                 <!-- Tech Stack Badges -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-2.5 mb-4">
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#0089D6]" viewBox="0 0 24 24"><path d="M11.4 2.1l-9.9 17.5 4.3 2.3 8.3-14.7z"/><path d="M13.2 5.1l7.8 14.5-4.3 2.3-11.2-20.2z"/></svg> Azure
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#FF3621]" viewBox="0 0 24 24"><path d="M12 0l-11.5 6.5v11l11.5 6.5 11.5-6.5v-11l-11.5-6.5zm0 2.2l9.3 5.3-9.3 5.3-9.3-5.3 9.3-5.3zm-10.5 7.1l9.8 5.6v10.9l-9.8-5.6v-10.9zm11.3 16.5v-10.9l9.8-5.6v10.9l-9.8 5.6z"/></svg> Databricks
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#E25A1C]" viewBox="0 0 24 24"><path d="M12 0l-12 12 12 12 12-12-12-12zm0 3.8l8.2 8.2-8.2 8.2-8.2-8.2-8.2-8.2z"/></svg> PySpark
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#003554]" viewBox="0 0 24 24"><path d="M12 2l10 18h-20l10-18z"/></svg> Delta Lake
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#0078D4]" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> Synapse
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#3776AB]" viewBox="0 0 24 24"><path d="M12 0c-3.3 0-3.1 1.4-3.1 1.4v1.5h6.2v1h-9.3s-2.8-.2-2.8 3.1c0 3.3 1.3 3.1 1.3 3.1h1.7v-1.6s-.1-1.8 1.8-1.8h4.6s1.7.1 1.7-1.6v-4.1s.3-1.5-3.3-1.5zm-4.7 3.5c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1zm10 8.3h-4.6s-1.7-.1-1.7 1.6v4.1s-.3 1.5 3.3 1.5c3.3 0 3.1-1.4 3.1-1.4v-1.5h-6.2v-1h9.3s2.8.2 2.8-3.1c0-3.3-1.3-3.1-1.3-3.1h-1.7v1.6s.1 1.8-1.8 1.8zm-4.7 10c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1z"/></svg> Python
                     </span>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-xs rounded-md text-gray-200 flex items-center gap-1.5 font-medium">
+                    <span class="px-3 py-1.5 glass-card text-xs rounded-lg text-gray-200 flex items-center gap-1.5 font-medium shadow-sm">
                         <svg class="w-4 h-4 fill-[#CC292B]" viewBox="0 0 24 24"><path d="M12 2c-5.5 0-10 2.2-10 5v10c0 2.8 4.5 5 10 5s10-2.2 10-5v-10c0-2.8-4.5-5-10-5zm0 3c4.4 0 8 1.6 8 3.5s-3.6 3.5-8 3.5-8-1.6-8-3.5 3.6-3.5 8-3.5zm0 14c-4.4 0-8-1.6-8-3.5v-2c1.9 1.4 4.8 2.2 8 2.2s6.1-.8 8-2.2v2c0 1.9-3.6 3.5-8 3.5z"/></svg> SQL
                     </span>
                 </div>
@@ -77,21 +100,18 @@
             </div>
         </header>
 
-        <!-- BOTTOM 3 VERTICAL COLUMNS (Education -> Projects -> Experience) -->
-        <main class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow overflow-hidden">
+        <!-- BOTTOM 3 VERTICAL COLUMNS -->
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow pb-4 md:pb-0">
             
             <!-- Column 1: Education -->
-            <section class="glass-panel p-6 rounded-2xl flex flex-col gap-5 overflow-y-auto">
+            <section class="glass-panel p-6 rounded-3xl flex flex-col gap-5 md:overflow-y-auto">
                 <h3 class="text-lg font-bold text-white tracking-wide border-b border-white/10 pb-3 flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span> Education
+                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]"></span> Education
                 </h3>
                 
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
-                        <!-- Using a high-res placeholder or emblem container for CU -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
-                            <span class="text-xs">CU</span>
-                        </div>
+                        <img src="assets/cu-boulder.png" alt="CU Boulder" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5', innerText:'CU'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">MS in Computer Science</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Colorado Boulder</p>
@@ -101,22 +121,17 @@
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- UChicago Emblem styling container -->
-                        <div class="w-10 h-10 rounded-xl bg-[#800000]/30 border border-white/10 flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
-                            <span class="text-xs tracking-tighter">UChi</span>
-                        </div>
+                        <img src="assets/uchicago.png" alt="UChicago" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5', innerText:'UC'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">MS in Biomedical Informatics</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Chicago</p>
                             <p class="text-xs text-gray-400 pb-1">Sep 2021 – Aug 2022</p>
-                            <p class="text-xs md:text-sm text-gray-200 italic bg-white/5 p-2.5 rounded-lg border border-white/5 leading-relaxed">Capstone: Executed a machine learning classification pipeline using patient biomarker data from The Michael J. Fox Foundation for Parkinson's Research.</p>
+                            <p class="text-xs md:text-sm text-gray-200 italic glass-card p-3 rounded-xl leading-relaxed">Capstone: Executed a machine learning classification pipeline using patient biomarker data from The Michael J. Fox Foundation for Parkinson's Research.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-[#7a0019]/30 border border-white/10 flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
-                            <span class="text-xs">UMN</span>
-                        </div>
+                        <img src="assets/umn.png" alt="UMN" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5', innerText:'UMN'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">BS in Biology</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Minnesota (Twin Cities)</p>
@@ -128,13 +143,13 @@
             </section>
 
             <!-- Column 2: Projects -->
-            <section class="glass-panel p-6 rounded-2xl flex flex-col gap-5 overflow-y-auto">
+            <section class="glass-panel p-6 rounded-3xl flex flex-col gap-5 md:overflow-y-auto">
                 <h3 class="text-lg font-bold text-white tracking-wide border-b border-white/10 pb-3 flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span> Technical Projects
+                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]"></span> Technical Projects
                 </h3>
                 
                 <div class="space-y-5">
-                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                    <div class="glass-card p-4 rounded-2xl">
                         <div class="flex justify-between items-start mb-1.5">
                             <h4 class="text-white font-semibold text-sm md:text-base">Real-Time Patient Flow Platform</h4>
                             <a href="https://github.com/ndomah1/patient-flow-analytics-azure" target="_blank" class="text-xs md:text-sm text-gray-300 hover:text-white transition font-medium">Repo ↗</a>
@@ -147,7 +162,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                    <div class="glass-card p-4 rounded-2xl">
                         <div class="flex justify-between items-start mb-1.5">
                             <h4 class="text-white font-semibold text-sm md:text-base">Automated Data Validation & HRRP</h4>
                             <a href="https://github.com/ndomah1/hrrp-penalties" target="_blank" class="text-xs md:text-sm text-gray-300 hover:text-white transition font-medium">Repo ↗</a>
@@ -162,16 +177,14 @@
             </section>
 
             <!-- Column 3: Experience -->
-            <section class="glass-panel p-6 rounded-2xl flex flex-col gap-5 overflow-y-auto">
+            <section class="glass-panel p-6 rounded-3xl flex flex-col gap-5 md:overflow-y-auto">
                 <h3 class="text-lg font-bold text-white tracking-wide border-b border-white/10 pb-3 flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span> Work Experience
+                    <span class="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]"></span> Work Experience
                 </h3>
                 
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-amber-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-xs font-bold text-amber-500">UPS</span>
-                        </div>
+                        <img src="assets/ups.png" alt="UPS" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center flex-shrink-0 mt-0.5', innerHTML:'<span class=\'text-xs font-bold text-amber-400\'>UPS</span>'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">Package Handler (Preload)</h4>
                             <p class="text-xs md:text-sm text-gray-300">UPS | Maple Grove, MN</p>
@@ -181,9 +194,7 @@
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-xs font-bold text-red-500">DD</span>
-                        </div>
+                        <img src="assets/doordash.png" alt="DoorDash" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center flex-shrink-0 mt-0.5', innerHTML:'<span class=\'text-xs font-bold text-red-400\'>DD</span>'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">Independent Delivery Contractor</h4>
                             <p class="text-xs md:text-sm text-gray-300">DoorDash | Plymouth, MN</p>
@@ -193,9 +204,7 @@
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-blue-400">W</span>
-                        </div>
+                        <img src="assets/welocalize.png" alt="Welocalize" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center flex-shrink-0 mt-0.5', innerHTML:'<span class=\'text-sm font-bold text-blue-400\'>W</span>'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">AI Data Specialist</h4>
                             <p class="text-xs md:text-sm text-gray-300">Welocalize | Remote</p>
@@ -205,9 +214,7 @@
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-teal-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-teal-400">T</span>
-                        </div>
+                        <img src="assets/telus.png" alt="Telus" class="w-10 h-10 rounded-xl object-cover glass-card flex-shrink-0 mt-0.5" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-xl glass-card flex items-center justify-center flex-shrink-0 mt-0.5', innerHTML:'<span class=\'text-sm font-bold text-teal-400\'>T</span>'}))">
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">AI Data Specialist</h4>
                             <p class="text-xs md:text-sm text-gray-300">TELUS International | Remote</p>
