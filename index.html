@@ -22,7 +22,7 @@
     <!-- MAIN CONTAINER -->
     <div class="max-w-7xl w-full mx-auto h-full flex flex-col gap-4 overflow-hidden">
 
-        <!-- UPPER LANDSCAPE PORTION (Expanded Summary) -->
+        <!-- UPPER LANDSCAPE PORTION (First-Person Rich Summary) -->
         <header class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 flex-shrink-0">
             <!-- Profile Picture -->
             <img src="https://avatars.githubusercontent.com/u/ndomah1" alt="Nilesh Domah" class="w-32 h-32 md:w-36 md:h-36 rounded-full border border-white/20 object-cover shadow-2xl flex-shrink-0">
@@ -31,7 +31,7 @@
                 <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-1">Hi, I'm Nilesh 👋</h1>
                 <h2 class="text-xl text-gray-300 font-semibold mb-2">Data Engineer</h2>
                 <p class="text-gray-200 mb-4 text-sm md:text-base leading-relaxed max-w-4xl">
-                    Data Engineer specializing in distributed computing, modern Lakehouse architectures, and scalable cloud data pipelines. With a strong foundation in biomedical informatics and computer science, I bridge the gap between complex raw datasets and high-performance analytical storage. My core focus centers on transforming high-velocity event streams and batch data ingestion patterns into clean, dimensional data models that drive actionable operational analytics and resilient infrastructure.
+                    I am a Data Engineer specializing in distributed computing, modern Lakehouse architectures, and scalable cloud data pipelines. Combining my Master’s in Biomedical Informatics from the University of Chicago with my ongoing Master's in Computer Science at CU Boulder, I bridge the gap between complex datasets and high-performance analytical storage. My core focus is transforming high-velocity event streams and batch data into clean, dimensional models that drive reliable operational analytics.
                 </p>
                 
                 <!-- Tech Stack Badges -->
@@ -77,7 +77,7 @@
             </div>
         </header>
 
-        <!-- BOTTOM 3 VERTICAL COLUMNS (Education -> Projects -> Experience with larger text & SVGs) -->
+        <!-- BOTTOM 3 VERTICAL COLUMNS (Education -> Projects -> Experience) -->
         <main class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-grow overflow-hidden">
             
             <!-- Column 1: Education -->
@@ -88,33 +88,40 @@
                 
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
-                        <!-- CU Boulder Icon/Badge -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5">CU</div>
+                        <!-- Using a high-res placeholder or emblem container for CU -->
+                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
+                            <span class="text-xs">CU</span>
+                        </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">MS in Computer Science</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Colorado Boulder</p>
-                            <p class="text-xs text-gray-400">Mar 2025 – Mar 2027 (exp.)</p>
+                            <p class="text-xs text-gray-400 pb-1">Mar 2025 – Mar 2027 (exp.)</p>
+                            <p class="text-xs text-gray-300 leading-relaxed">Focusing on advanced algorithms, distributed systems, and modern software engineering principles.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- UChicago Icon/Badge -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5">UC</div>
+                        <!-- UChicago Emblem styling container -->
+                        <div class="w-10 h-10 rounded-xl bg-[#800000]/30 border border-white/10 flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
+                            <span class="text-xs tracking-tighter">UChi</span>
+                        </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">MS in Biomedical Informatics</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Chicago</p>
-                            <p class="text-xs text-gray-400 pb-1.5">Sep 2021 – Aug 2022</p>
-                            <p class="text-xs md:text-sm text-gray-200 italic bg-white/5 p-2.5 rounded-lg border border-white/5 leading-relaxed">Capstone: ML Classification Pipeline (Parkinson's Biomarkers)</p>
+                            <p class="text-xs text-gray-400 pb-1">Sep 2021 – Aug 2022</p>
+                            <p class="text-xs md:text-sm text-gray-200 italic bg-white/5 p-2.5 rounded-lg border border-white/5 leading-relaxed">Capstone: Executed a machine learning classification pipeline using patient biomarker data from The Michael J. Fox Foundation for Parkinson's Research.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- UMN Icon/Badge -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5">UM</div>
+                        <div class="w-10 h-10 rounded-xl bg-[#7a0019]/30 border border-white/10 flex items-center justify-center font-bold text-white flex-shrink-0 mt-0.5 overflow-hidden">
+                            <span class="text-xs">UMN</span>
+                        </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">BS in Biology</h4>
                             <p class="text-xs md:text-sm text-gray-300">University of Minnesota (Twin Cities)</p>
-                            <p class="text-xs text-gray-400">Sep 2016 – May 2021</p>
+                            <p class="text-xs text-gray-400 pb-1">Sep 2016 – May 2021</p>
+                            <p class="text-xs text-gray-300 leading-relaxed">Built foundational analytical methodologies and scientific research execution frameworks.</p>
                         </div>
                     </div>
                 </div>
@@ -134,21 +141,21 @@
                         </div>
                         <p class="text-xs md:text-sm text-gray-400 pb-2.5 italic">Azure Event Hubs, Databricks, PySpark, Delta Lake</p>
                         <ul class="text-xs md:text-sm text-gray-200 list-disc list-inside leading-relaxed space-y-2">
-                            <li>Real-time Kafka event streaming for bed allocation metrics.</li>
-                            <li>Medallion Architecture (Bronze → Silver → Gold) on ADLS Gen2.</li>
-                            <li>Star Schema with SCD Type 2 tracking in Azure Synapse.</li>
+                            <li>Engineered an end-to-end real-time event streaming pipeline using Azure Event Hubs to ingest high-frequency admission and discharge streams.</li>
+                            <li>Implemented a robust Lakehouse Medallion Architecture (Bronze to Silver to Gold) on ADLS Gen2 using PySpark.</li>
+                            <li>Architected a dimensional Star Schema with SCD Type 2 tracking in Azure Synapse Dedicated SQL Pools.</li>
                         </ul>
                     </div>
 
                     <div class="bg-white/5 p-4 rounded-xl border border-white/10">
                         <div class="flex justify-between items-start mb-1.5">
-                            <h4 class="text-white font-semibold text-sm md:text-base">Automated Data Validation</h4>
-                            <a href="https://github.com/ndomah1/Urban-Routes-E2E-Test-Automation" target="_blank" class="text-xs md:text-sm text-gray-300 hover:text-white transition font-medium">Repo ↗</a>
+                            <h4 class="text-white font-semibold text-sm md:text-base">Automated Data Validation & HRRP</h4>
+                            <a href="https://github.com/ndomah1/hrrp-penalties" target="_blank" class="text-xs md:text-sm text-gray-300 hover:text-white transition font-medium">Repo ↗</a>
                         </div>
-                        <p class="text-xs md:text-sm text-gray-400 pb-2.5 italic">Python, CI/CD (GitHub Actions), REST APIs</p>
+                        <p class="text-xs md:text-sm text-gray-400 pb-2.5 italic">Python, CI/CD (GitHub Actions), CMS Datasets</p>
                         <ul class="text-xs md:text-sm text-gray-200 list-disc list-inside leading-relaxed space-y-2">
-                            <li>Modular Python framework verifying cross-workflow state transitions.</li>
-                            <li>Integrated GitHub Actions cutting manual regression time by 40%.</li>
+                            <li>Processed CMS Hospital Readmissions Reduction Program (HRRP) and IPPS data files using modular Python scripts.</li>
+                            <li>Built automated data validation testing routines integrated directly into GitHub Actions CI/CD workflows, cutting regression review times by 40%.</li>
                         </ul>
                     </div>
                 </div>
@@ -162,52 +169,50 @@
                 
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
-                        <!-- UPS SVG Logo -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 1l10 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12v-6l10-4z"/></svg>
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-xs font-bold text-amber-500">UPS</span>
                         </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">Package Handler (Preload)</h4>
                             <p class="text-xs md:text-sm text-gray-300">UPS | Maple Grove, MN</p>
                             <p class="text-xs text-gray-400 pb-1">Jun 2026 – Present</p>
-                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Managing high-throughput intake and logistics routing accuracy.</p>
+                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Managed high-throughput physical intake operations, load balancing, and precision logistics tracking under strict time-sensitive windows.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- DoorDash SVG Logo -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10-10-4.48-10-10 4.48-10 10-10zm0 3c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z"/></svg>
+                        <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-xs font-bold text-red-500">DD</span>
                         </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">Independent Delivery Contractor</h4>
                             <p class="text-xs md:text-sm text-gray-300">DoorDash | Plymouth, MN</p>
-                            <p class="text-xs text-gray-400">Dec 2025 – Present</p>
+                            <p class="text-xs text-gray-400 pb-1">Dec 2025 – Present</p>
+                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Handled real-time route optimization, time management, and customer-facing fulfillment logistics.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- Welocalize Initial -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-white">W</span>
+                        <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-blue-400">W</span>
                         </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">AI Data Specialist</h4>
                             <p class="text-xs md:text-sm text-gray-300">Welocalize | Remote</p>
                             <p class="text-xs text-gray-400 pb-1">Apr 2023 – Oct 2023</p>
-                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Audited structured datasets and built custom Python parsing scripts.</p>
+                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Audited and validated structured datasets, utilizing custom Python parsing scripts to ensure schema adherence and data cleanliness.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 items-start">
-                        <!-- Telus Initial -->
-                        <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span class="text-sm font-bold text-white">T</span>
+                        <div class="w-10 h-10 rounded-xl bg-teal-600/20 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold text-teal-400">T</span>
                         </div>
                         <div>
                             <h4 class="text-white font-semibold text-sm md:text-base">AI Data Specialist</h4>
                             <p class="text-xs md:text-sm text-gray-300">TELUS International | Remote</p>
-                            <p class="text-xs text-gray-400">Sep 2021 – Sep 2022</p>
+                            <p class="text-xs text-gray-400 pb-1">Sep 2021 – Sep 2022</p>
+                            <p class="text-xs md:text-sm text-gray-200 leading-relaxed">Processed and evaluated large-scale data points for machine learning model optimization and rigorous quality assurance.</p>
                         </div>
                     </div>
                 </div>
